@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+class Employee {
+    String empName, address, mailId, mobileNo, designation;
+    int empId;
+    double bp;
+
+    void getData() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Employee Name : ");
+        empName = sc.nextLine();
+
+        System.out.print("Employee ID : ");
+        empId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Address : ");
+        address = sc.nextLine();
+
+        System.out.print("Mail ID : ");
+        mailId = sc.nextLine();
+
+        System.out.print("Mobile No : ");
+        mobileNo = sc.nextLine();
+
+        System.out.print("Designation : ");
+        designation = sc.nextLine();
+
+        System.out.print("Basic Pay : ");
+        bp = sc.nextDouble();
+    }
+}
+
+class Programmer extends Employee {
+
+    void generatePaySlip() {
+
+        double da = bp * 97 / 100;
+        double hra = bp * 10 / 100;
+        double pf = bp * 12 / 100;
+        double staffClub = bp * 1 / 100;
+
+        double grossSalary = bp + da + hra;
+        double netSalary = grossSalary - pf - staffClub;
+
+        System.out.println("\nDA = " + da);
+        System.out.println("HRA = " + hra);
+        System.out.println("PF = " + pf);
+        System.out.println("Staff Club Fund = " + staffClub);
+        System.out.println("Gross Salary = " + grossSalary);
+        System.out.println("Net Salary = " + netSalary);
+    }
+}
+
+public class EmployeeMain {
+    public static void main(String args[]) {
+
+        Programmer p = new Programmer();
+
+        p.getData();
+        p.generatePaySlip();
+    }
+}
