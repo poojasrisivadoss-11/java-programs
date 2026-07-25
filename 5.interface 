@@ -1,0 +1,39 @@
+import java.util.Scanner;
+interface Arithmetic {
+void add(double a, double b);
+void subtract(double a, double b);
+void multiply(double a, double b);
+void divide(double a, double b);
+}
+class Calculator implements Arithmetic {
+public void add(double a, double b) {
+System.out.println("Addition = " + (a + b));
+}
+public void subtract(double a, double b) {
+System.out.println("Subtraction = " + (a - b));
+}
+public void multiply(double a, double b) {
+System.out.println("Multiplication = " + (a * b));
+}
+public void divide(double a, double b) {
+if (b != 0)
+System.out.println("Division = " + (a / b));
+else
+System.out.println("Not Divisible");
+}
+}
+public class CalculatorDemo {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+System.out.print("Enter the value of a: ");
+double a = sc.nextDouble();
+System.out.print("Enter the value of b: ");
+double b = sc.nextDouble();
+Calculator calc = new Calculator();
+calc.add(a, b);
+calc.subtract(a, b);
+calc.multiply(a, b);
+calc.divide(a, b);
+sc.close();
+}
+}
